@@ -16,14 +16,14 @@ EXPOSE 8000
 
 ARG DEV=false
 RUN python -m venv /py && \
+    apk add --update --no-cache postgresql-client && \
+    apk add --update --no-cache --virtual .tmp-build-deps build-base postgresql-dev musl-dev && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ "${DEV}" = "true" ]; then \
         /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
-    apk add --update --no-cache postgresql-client && \
-    apk add --update --no-cache --virtual .tmp-build-deps build-base postgresql-dev musl-dev && \
     apk del .tmp-build-deps && \
     adduser --disabled-password --no-create-home django-user
 

@@ -1,15 +1,15 @@
-# Getting started with Django on Google Cloud Platform on App Engine Standard
+# Environment variables
 
-[![Open in Cloud Shell][shell_img]][shell_link]
+Create an .env file and set the following variables
 
-[shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
-[shell_link]: https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/GoogleCloudPlatform/python-docs-samples&page=editor&open_in_editor=appengine/standard_python38/django/README.md
+- POSTGRES_HOST
+- POSTGRES_NAME
+- POSTGRES_USER
+- POSTGRES_PASS
 
-This repository is an example of how to run a [Django](https://www.djangoproject.com/) 
-app on Google App Engine Standard Environment. It uses the 
-[Writing your first Django app](https://docs.djangoproject.com/en/3.2/intro/tutorial01/) as the 
-example app to deploy.
+# Useful commands
 
-
-# Tutorial
-See our [Running Django in the App Engine Standard Environment](https://cloud.google.com/python/django/appengine) tutorial for instructions for setting up and deploying this sample application.
+- `make build` - Build Docker images
+- `make run` - Run docker-compose up bringing service to life
+- `make lint` - Run flake8 against code
+- `make test` - Run unit tests

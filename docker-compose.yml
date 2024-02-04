@@ -1,5 +1,6 @@
 services:
   app:
+    container_name: webserver
     build:
       context: .
       args:
@@ -21,7 +22,10 @@ services:
       - db
 
   db:
+    container_name: postgres-django
     image: postgres:16-alpine
+    ports:
+      - 5432:5432
     volumes:
       - dev-db-data:/var/lib/postgresql/data
     environment:
